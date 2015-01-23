@@ -20,7 +20,7 @@ class Forensiq_Shortcode {
 		}
 	}
 	
-	function CookieParams () {
+	function Forensiq_Shortcode () {
 		$this->__construct();
 	}
 	
@@ -35,8 +35,10 @@ class Forensiq_Shortcode {
 			var fqa = getParameterByName( '<?php echo get_option( 'subsource' ); ?>' );
 			var fqcmp = getParameterByName( '<?php echo get_option( 'campaignid' ) ?>' );
 			var fqrf = getReferrer();
-			document.write( "<scr" + "ipt src='//c.fqtag.com/tag/implement-r.js?org=<?php echo $fqorg; ?>&s=&p=" + fqp + "&a=" + fqa + "&cmp=" + fqcmp + "&rt=display&sl=1&fmt=banner&rf=" + fqrf + "&fq=1'></scr" + "ipt>" );
-			document.write( "<noscr" + "ipt><img src='https://www.fqtag.com/pixel.cgi?org=<?php echo $fqorg; ?>&s=&p=" + fqp + "&a=" + fqa + "&cmp=" + fqcmp + "&rt=displayImage&sl=1&fmt=banner&rf=" + fqrf + "&fq=1' width='1' height='1' border='0' /></noscr" + "ipt>" );
+			if ( fqsource ) {
+				document.write( "<scr" + "ipt src='//c.fqtag.com/tag/implement-r.js?org=<?php echo $fqorg; ?>&s=&p=" + fqp + "&a=" + fqa + "&cmp=" + fqcmp + "&rt=display&sl=1&fmt=banner&rf=" + fqrf + "&fq=1'></scr" + "ipt>" );
+				document.write( "<noscr" + "ipt><img src='https://www.fqtag.com/pixel.cgi?org=<?php echo $fqorg; ?>&s=&p=" + fqp + "&a=" + fqa + "&cmp=" + fqcmp + "&rt=displayImage&sl=1&fmt=banner&rf=" + fqrf + "&fq=1' width='1' height='1' border='0' /></noscr" + "ipt>" );
+			}
 		</script>
 		<?php
 		} else {
